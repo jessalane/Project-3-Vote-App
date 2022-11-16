@@ -1,5 +1,5 @@
 const User = require('./User');
-const Category = require('./Category');
+const Polls = require('./Polls');
 
 
-module.exports = { User, Category, };
+module.exports = { User, Polls };
