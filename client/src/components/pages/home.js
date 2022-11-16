@@ -1,14 +1,7 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_POLLS } from '../utils/queries';
+import React from 'react';
 
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_POLLS, {
-    fetchPolicy: "no-cache"
-  });
 
-  const pollList = data?.polls || [];
-
+function Home() {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
