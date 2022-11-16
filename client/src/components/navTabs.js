@@ -31,7 +31,25 @@ function NavTabs({ currentPage, handlePageChange }) {
           onClick={() => handlePageChange('Register')}
           className={currentPage === 'Register' ? 'active' : 'inactive'}
         >
-          Resume
+          Register
+        </a>
+      </li>
+      <li>
+        <a
+          href="#profile"
+          onClick={() => handlePageChange('Profile')}
+          className={currentPage === 'Profile' ? 'active' : 'inactive'}
+        >
+          Profile
+        </a>
+      </li>
+      <li>
+        <a
+          href="#polls"
+          onClick={() => handlePageChange('Polls')}
+          className={currentPage === 'Polls' ? 'active' : 'inactive'}
+        >
+          Polls
         </a>
       </li>
     </ul>

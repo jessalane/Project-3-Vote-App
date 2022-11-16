@@ -5,7 +5,7 @@ import NavTabs from './navTabs';
 import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
-// import Poll from './pages/poll';
+import Polls from './pages/poll';
 import Profile from './pages/profile';
 import Footer from './footer'
 
@@ -22,6 +22,9 @@ export default function PortfolioContainer() {
     }
     if (currentPage === 'Register') {
       return <Register />;
+    }
+    if (currentPage === 'Polls') {
+      return <Polls />;
     }
     return <Profile />;
   };
