@@ -22,7 +22,7 @@ function NavTabs({ currentPage, handlePageChange }) {
           onClick={() => handlePageChange('Login')}
           className={currentPage === 'Login' ? 'active' : 'inactive'}
         >
-          Portfolio
+          Login
         </a>
       </li>
       <li>
