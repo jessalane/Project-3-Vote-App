@@ -7,31 +7,31 @@ import "./assets/scss/styles.scss";
 import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
-  let [sweater, setsweater] = useState([]);
+  let [sweater, setSweater] = useState([]);
 
   useEffect(() => {
-    setsweater(sweaterJson);
+    setSweater(sweaterJson);
   }, []);
 
-  function incrementVoteCount(teamId) {
-    sweater = sweater.map((team) => {
-      if (team._id === teamId) {
-        team.votes = team.votes + 1;
+  function incrementVoteCount(sweaterId) {
+    sweater = sweater.map((sweater) => {
+      if (sweater._id === sweaterId) {
+        sweater.votes = sweater.votes + 1;
       }
-      return team;
+      return sweater;
     });
-    setsweater(sweater);
+    setSweater(sweater);
   }
 
   return (
     <Container className="app">
       <Row>
-        {sweater.map((team) => {
+        {sweater.map((sweater) => {
           return (
             <Col md={4}>
               <VotingCard
-                team={team}
-                incrementVoteCount={(teamId) => incrementVoteCount(teamId)}
+                sweater={sweater}
+                incrementVoteCount={(sweaterId) => incrementVoteCount(sweaterId)}
               />
             </Col>
           );
