@@ -2,10 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const votesSchema = new Schema({
   votes: {
-    type: Int
+    type: Number
   }
 });
 
-const Votes = mongoose.model('Votes', votesSchema);
+const Votes = model('Votes', votesSchema);
 
 module.exports = Votes;
