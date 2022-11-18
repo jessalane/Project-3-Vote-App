@@ -1,3 +1,14 @@
+:root {
+    --darkerTeal: rgba(104, 179, 175, 1);
+    --lighterTeal: rgba(135, 189, 177, 1);
+    --seaGreen: rgba(170, 204, 177, 1);
+    --springGreen: rgba(195, 219, 180, 1);
+    --paleGreen: rgba(211, 226, 182, 1);
+    --SerifFont: 'Taviraj', serif;
+    --MonoFont: 'Cutive Mono', monospace;
+    --SansFont: 'Taviraj', serif;
+}
+
 #homePage {
     height: 100vh;
     display: flex;
@@ -16,14 +27,16 @@
 }
 
 #titleContainer h1 {
-    font-family: serif;
+    font-family: var(--MonoFont);
+    color: #2a2a2a;
     font-size: 60px;
     margin: 0;
     padding: 0;
 }
 
 #titleContainer h2 {
-    font-family: monospace;
+    font-family: var(--MonoFont);
+    color: #2a2a2a;
     font-size: 40px;
     margin: 0;
     padding: 0;

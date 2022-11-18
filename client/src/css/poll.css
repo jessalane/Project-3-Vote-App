@@ -1,0 +1,52 @@
+:root {
+    --darkerTeal: rgba(104, 179, 175, 1);
+    --lighterTeal: rgba(135, 189, 177, 1);
+    --seaGreen: rgba(170, 204, 177, 1);
+    --springGreen: rgba(195, 219, 180, 1);
+    --paleGreen: rgba(211, 226, 182, 1);
+    --SerifFont: 'Taviraj', serif;
+    --MonoFont: 'Cutive Mono', monospace;
+    --SansFont: 'Taviraj', serif;
+}
+
+#pollPage {
+    min-height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pollContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+#pollContainer h1 {
+    margin: 0;
+    padding: 0;
+    font-family: var(--SansFont);
+    color: #2a2a2a;
+    font-size: 50px;
+}
+
+#pollContainer input {
+    width: fit-content;
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    font-family: var(--MonoFont);
+}
+#pollContainer label {
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    font-family: var(--MonoFont);
+    text-align: left;
+}
