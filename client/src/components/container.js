@@ -1,6 +1,6 @@
 import '../css/home.css';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavTabs from './navTabs';
 import Home from './pages/home';
 import Login from './pages/login';
@@ -12,14 +12,27 @@ import Uploader from './pages/uploader';
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState('Home');
+  const [file, setFile] = useState(null);
+  useEffect(() => {
+    console.log(file?.filesUploaded[0]?.url)
+    setCurrentPage ('Home')
+// TODO: code here to send to apollo
+// {file ? (
+//   <img
 
+//     src={file.filesUploaded[0]?.url}
+//   />
+// ) : (
+//   "No file has been chosen yet."
+// )}
+  }, [file]);
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
   const renderPage = () => {
     if (currentPage === 'Home') {
       return <Home />;
     }
     if (currentPage === 'Uploader') {
-      return <Uploader />;
+      return <Uploader setFile = {setFile} file = {file} />;
     }
     if (currentPage === 'Login') {
       return <Login />;
