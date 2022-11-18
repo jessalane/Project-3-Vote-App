@@ -52,7 +52,17 @@ function NavTabs({ currentPage, handlePageChange }) {
           Polls
         </a>
       </li>
-    </ul>
+    
+      <li>
+        <a
+          href="#uploader"
+          onClick={() => handlePageChange('Uploader')}
+          className={currentPage === 'Uploader' ? 'active' : 'inactive'}
+        >
+          Uploader
+        </a>
+      </li>
+      </ul>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import Register from './pages/register';
 import Polls from './pages/poll';
 import Profile from './pages/profile';
 import Footer from './footer'
+import Uploader from './pages/uploader';
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -16,6 +17,9 @@ export default function PortfolioContainer() {
   const renderPage = () => {
     if (currentPage === 'Home') {
       return <Home />;
+    }
+    if (currentPage === 'Uploader') {
+      return <Uploader />;
     }
     if (currentPage === 'Login') {
       return <Login />;
