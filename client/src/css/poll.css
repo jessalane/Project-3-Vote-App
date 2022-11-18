@@ -9,35 +9,44 @@
     --SansFont: 'Taviraj', serif;
 }
 
-#homePage {
-    height: 100vh;
+#pollPage {
+    min-height: 100vh;
     display: flex;
     flex: 1;
     flex-grow: 1;
-    flex-flow: row wrap;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
 }
 
-#titleContainer {
-    flex: 1;
-    flex-grow: 1;
-    flex-basis: 50%;
+#pollContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     text-align: center;
 }
 
-#titleContainer h1 {
-    font-family: var(--MonoFont);
-    color: #2a2a2a;
-    font-size: 60px;
+#pollContainer h1 {
     margin: 0;
     padding: 0;
+    font-family: var(--SansFont);
+    color: #2a2a2a;
+    font-size: 50px;
 }
 
-#titleContainer h2 {
+#pollContainer input {
+    width: fit-content;
+    margin: 10px;
+    padding: 10px;
+    display: block;
     font-family: var(--MonoFont);
-    color: #2a2a2a;
-    font-size: 40px;
-    margin: 0;
-    padding: 0;
+}
+#pollContainer label {
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    font-family: var(--MonoFont);
+    text-align: left;
 }

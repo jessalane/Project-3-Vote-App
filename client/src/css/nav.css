@@ -4,9 +4,9 @@
     --seaGreen: rgba(170,204,177, 1);
     --springGreen: rgba(195,219,180, 1);
     --paleGreen: rgba(211,226,182, 1);
-    --smallCaps: 'Alegreya SC', serif;
-    --MonoFont: 'Syne Mono', monospace;
-    --SansFont: 'Advent Pro', sans-serif;
+    --SerifFont: 'Taviraj', serif;
+    --MonoFont: 'Cutive Mono', monospace;
+    --SansFont: 'Taviraj', serif;
   }
   
   /*--- navigation bar styling ---*/
@@ -16,7 +16,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: var(--redPurple);
+      background-color: var(--darkerTeal);
       padding: 10px 20px;
     }
     .nav1 {
@@ -34,20 +34,20 @@
     }
     
     #navName {
-      font-family: var(--smallCaps);
+      font-family: var(--MonoFont);
       font-size: 30px;
       padding-left: 7%;
       color: #eeeeee;
     }
     
     #nav .inactive {
-      color: #eeeeee;
+      color: #2a2a2a;
       font-family: var(--MonoFont);
       padding: 0 20px;
     }
     
     #nav .inactive:hover {
-      color: var(--lightTeal);
+      color: var(--springGreen);
       text-shadow: 0 0 5px #000;
       transform: scale(1.1);
       outline: 1px solid transparent;

@@ -1,4 +1,16 @@
-#loginPage, #registerPage {
+:root {
+    --darkerTeal: rgba(104, 179, 175, 1);
+    --lighterTeal: rgba(135, 189, 177, 1);
+    --seaGreen: rgba(170, 204, 177, 1);
+    --springGreen: rgba(195, 219, 180, 1);
+    --paleGreen: rgba(211, 226, 182, 1);
+    --SerifFont: 'Taviraj', serif;
+    --MonoFont: 'Cutive Mono', monospace;
+    --SansFont: 'Taviraj', serif;
+}
+
+#loginPage,
+#registerPage {
     min-height: 100vh;
     display: flex;
     flex: 1;
@@ -8,15 +20,17 @@
     align-items: center;
 }
 
-#loginPage h1, #registerPage h1 {
+#loginPage h1,
+#registerPage h1 {
     margin: 0;
     padding: 0;
-    font-family: serif;
-    font-size: 60px;
+    font-family: var(--SansFont);
+    color: #2a2a2a;
+    font-size: 50px;
 }
 
 .form {
-    display: flex; 
+    display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
@@ -29,4 +43,5 @@
     margin: 10px;
     padding: 10px;
     display: block;
+    font-family: var(--MonoFont);
 }
