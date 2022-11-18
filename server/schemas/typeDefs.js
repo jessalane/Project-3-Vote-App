@@ -27,8 +27,10 @@ type vote {
 }
 
 type Query {
-    pollOptions: [PollOptions]
-    vote: (pollOptions: String!): PollOptions
+    users: [User]
+    user(username: String!): User
+    thoughts(username: String): [Polls]
+    thought(pollId: ID!): Polls
 }
 
 type Mutation {
