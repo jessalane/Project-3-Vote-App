@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 
 function VotingCard(props) {
   let { sweater, incrementVoteCount } = props;
-// hi
+// changes
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={`/assets/images/${sweater.pic}`} />
@@ -17,4 +17,5 @@ function VotingCard(props) {
     </Card>
   );
 }
+
 export default VotingCard;
