@@ -28,8 +28,6 @@ db.once('open', async () => {
         'Vote for the moron that forgot it was an ugly sweater party',
       image: 'canned-coffee.jpg',
       category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
     },
     {
       name: 'Most Festive Sweater',
