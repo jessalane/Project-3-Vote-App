@@ -10,6 +10,8 @@ const pollSchema = new Schema({
     trim: true
   },
   options: [pollOptionsSchema]
+
+  
 });
 
 const Polls = model('Polls', pollSchema);
