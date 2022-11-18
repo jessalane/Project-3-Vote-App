@@ -56,14 +56,6 @@ function Login() {
           required
         />
         <input
-          value={username}
-          name="name"
-          onChange={handleInputChange}
-          type="text"
-          placeholder="username"
-          required
-        />
-        <input
           value={password}
           name="password"
           onChange={handleInputChange}
