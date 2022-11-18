@@ -1,0 +1,32 @@
+#loginPage, #registerPage {
+    min-height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginPage h1, #registerPage h1 {
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+    font-size: 60px;
+}
+
+.form {
+    display: flex; 
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.form input {
+    width: 70%;
+    margin: 10px;
+    padding: 10px;
+    display: block;
+}
