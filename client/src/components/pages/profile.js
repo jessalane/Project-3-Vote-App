@@ -16,7 +16,7 @@ const styles = {
 
 // We use JSX curly braces to evaluate the style object on the JSX tag
 
-function Section() {
+function Profile() {
   return (
     <section style={styles.sectionStyles} className="section">
       <h2>Lorem Ipsum Dolor Sit Amet</h2>
@@ -63,4 +63,4 @@ function Section() {
   );
 }
 
-export default profile;
+export default Profile;

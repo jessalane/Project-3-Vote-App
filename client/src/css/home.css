@@ -1,0 +1,30 @@
+#homePage {
+    height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#titleContainer {
+    flex: 1;
+    flex-grow: 1;
+    flex-basis: 50%;
+    text-align: center;
+}
+
+#titleContainer h1 {
+    font-family: serif;
+    font-size: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+#titleContainer h2 {
+    font-family: monospace;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
