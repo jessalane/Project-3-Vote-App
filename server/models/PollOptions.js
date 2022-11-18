@@ -15,6 +15,6 @@ const pollOptionsSchema = new Schema({
   votes: votesSchema
 });
 
-const PollOptions = model('Polls', pollOptionsSchema);
+const PollOptions = model('PollOptions', pollOptionsSchema);
 
 module.exports = PollOptions;
