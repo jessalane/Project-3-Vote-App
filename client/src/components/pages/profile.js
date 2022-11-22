@@ -14,8 +14,8 @@ function Profile() {
         <li>here</li>
       </ul>
       <h4>Create New Poll</h4>
-      <form class="newPollForm">
-        <button class="newPollButton">Click To Start</button>
+      <form className="newPollForm">
+        <button className="newPollButton">Click To Start</button>
       </form>
     </section>
   );

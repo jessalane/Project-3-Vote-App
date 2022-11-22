@@ -23,7 +23,10 @@ const userSchema = new Schema({
     unique: true,
     match: [/.+@.+\..+/, 'Input must be an email address!']
   },
-  // polls: [Polls]
+  polls: [{ 
+    type: Schema.Types.ObjectId,
+    ref: 'Polls'
+  }],
 });
 
 userSchema.pre('save', async function (next) {

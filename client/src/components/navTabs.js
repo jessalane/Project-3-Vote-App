@@ -1,14 +1,23 @@
 import React from 'react';
 import '../css/nav.css';
-
+import Auth from '../utils/auth';
 
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
-function NavTabs({ currentPage, handlePageChange }) {
+function NavTabs({ currentPage, handlePageChange, props }) {
+  const email = localStorage.getItem('user_email');
+  const token = localStorage.getItem('id_token');
+  let logged = '';
+  if(token !== null) {
+    logged = true;
+  } else {
+    logged = false;
+  }
 
   return (
     <div id="nav">
-    <ul>
+    {!logged ? (
+      <ul>
       <li>
         <a
           href="#home"
@@ -63,10 +72,70 @@ function NavTabs({ currentPage, handlePageChange }) {
         >
           Uploader
         </a>
-      </li>
+      </li>      
       </ul>
+    ) : (
+      <ul>
+      <li>
+        <a
+          href="#home"
+          onClick={() => handlePageChange('Home')}
+          className={currentPage === 'Home' ? 'active' : 'inactive'}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="#profile"
+          onClick={() => handlePageChange('Profile')}
+          className={currentPage === 'Profile' ? 'active' : 'inactive'}
+        >
+          Profile
+        </a>
+      </li>
+      <li>
+        <a
+          href="#polls"
+          onClick={() => handlePageChange('Polls')}
+          className={currentPage === 'Polls' ? 'active' : 'inactive'}
+        >
+          Polls
+        </a>
+      </li>
+      <li>
+        <a
+          href="#logout"
+          onClick={() => { handlePageChange('Logout'); Auth.logout(); }}
+          className={currentPage === 'Logout' ? 'active' : 'inactive'}
+        >
+          Logout
+        </a>
+      </li>
+    
+      <li>
+        <a
+          href="#uploader"
+          onClick={() => handlePageChange('Uploader')}
+          className={currentPage === 'Uploader' ? 'active' : 'inactive'}
+        >
+          Uploader
+        </a>
+      </li>
+      <li style> 
+        You are logged in as {email}.
+      </li>      
+      </ul>
+    )}
     </div>
+
+
+
+
   );
 }
+
+
+
 
 export default NavTabs;

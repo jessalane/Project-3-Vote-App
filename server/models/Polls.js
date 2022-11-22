@@ -9,7 +9,10 @@ const pollSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  // author: userSchema.userName,
+  author: { 
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
   title: {
     type: String,
     required: true,
@@ -27,7 +30,10 @@ const pollSchema = new Schema({
       required: false,
       trim: true
     },
-    // votes: Vote
+    vote: {
+      type: Schema.Types.ObjectId,
+      ref: 'Vote',
+    }
   }]
 
   

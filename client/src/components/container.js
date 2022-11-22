@@ -28,13 +28,16 @@ export default function PortfolioContainer() {
       return <Uploader setFile = {setFile} file = {file} />;
     }
     if (currentPage === 'Login') {
-      return <Login />;
+      return <Login currentPage={currentPage} handlePageChange={handlePageChange}/>;
     }
     if (currentPage === 'Register') {
-      return <Register />;
+      return <Register currentPage={currentPage} handlePageChange={handlePageChange}/>;
     }
     if (currentPage === 'Polls') {
       return <Polls />;
+    } 
+    if (currentPage === 'Logout') {
+      return <Home />;
     }
     return <Profile />;
   };
