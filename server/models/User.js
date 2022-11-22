@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const Polls = require('./Polls');
 
-const { Schema } = mongoose;
+
+const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
   username: {
@@ -22,7 +23,7 @@ const userSchema = new Schema({
     unique: true,
     match: [/.+@.+\..+/, 'Input must be an email address!']
   },
-  polls: [Polls]
+  // polls: [Polls]
 });
 
 userSchema.pre('save', async function (next) {
