@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import '../../css/loginRegister.css';
-
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
 
-function Login() {
+function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -31,7 +29,8 @@ function Login() {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      Auth.login(data.login.token, formState.email);
+      props.handlePageChange("Profile");
     } catch (e) {
       console.error(e);
     }
@@ -40,24 +39,18 @@ function Login() {
     setFormState({
       email: '',
       password: '',
+      username: ''
     });
   };
 
   return (
     <section id="loginPage">
-      {data ? (
-        <p>
-          Success! You may now head{' '}
-          <Link to="/">back to the homepage.</Link>
-        </p>
-      ) : (
-      <div>
         <h1>login to your account</h1>
         <form 
           onSubmit={handleFormSubmit}
           target="_blank"
           method="POST"
-          class="form"
+          className="form"
       >
           <input
             value={formState.email}
@@ -82,8 +75,6 @@ function Login() {
               Submit
           </button>
         </form> 
-      </div>
-    )}
       {error && (
         <div>
             <p className="error-text">{error}</p>
