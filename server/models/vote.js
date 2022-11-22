@@ -1,11 +1,17 @@
 const { Schema, model } = require('mongoose');
 
-const votesSchema = new Schema({
-  votes: {
+const voteSchema = new Schema({
+  vote: {
     type: Number
   }
+}, {
+  toJSON: {
+    getters: true,
+    virtuals: true,
+  },
+  id: false,
 });
 
-const Votes = model('Votes', votesSchema);
+const Vote = model('Vote', voteSchema);
 
-module.exports = Votes;
+module.exports = Vote;
