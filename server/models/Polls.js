@@ -9,7 +9,7 @@ const pollSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  author: userSchema.userName,
+  // author: userSchema.userName,
   title: {
     type: String,
     required: true,
@@ -27,7 +27,7 @@ const pollSchema = new Schema({
       required: false,
       trim: true
     },
-    votes: Vote
+    // votes: Vote
   }]
 
   

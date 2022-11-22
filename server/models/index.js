@@ -1,6 +1,6 @@
 const User = require('./User');
 const Polls = require('./Polls');
-const PollOptions = require('./PollOptions');
+// const PollOptions = require('./PollOptions');
 
 
-module.exports = { User, Polls, PollOptions };
+module.exports = { User, Polls };
