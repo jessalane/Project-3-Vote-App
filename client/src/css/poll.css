@@ -6,11 +6,10 @@
     --paleGreen: rgba(211, 226, 182, 1);
     --SerifFont: 'Taviraj', serif;
     --MonoFont: 'Cutive Mono', monospace;
-    --SansFont: 'Taviraj', serif;
 }
 
 #pollPage {
-    min-height: 100vh;
+    min-height: 86vh;
     display: flex;
     flex: 1;
     flex-grow: 1;
@@ -31,22 +30,36 @@
 #pollContainer h1 {
     margin: 0;
     padding: 0;
-    font-family: var(--SansFont);
+    font-family: var(--MonoFont);
     color: #2a2a2a;
     font-size: 50px;
 }
 
-#pollContainer input {
-    width: fit-content;
-    margin: 10px;
-    padding: 10px;
-    display: block;
+.cardBody {
+    padding: 0;
+}
+
+.cardTitle {
+    font-family: var(--MonoFont);
+    font-size: 30px;
+    background-color: var(--darkerTeal);
+    color: #2a2a2a;
+    margin: 0;
+}
+
+.voteCount {
     font-family: var(--MonoFont);
 }
-#pollContainer label {
-    margin: 10px;
-    padding: 10px;
-    display: inline-block;
+
+#pollPage button {
+    background-color: var(--seaGreen);
     font-family: var(--MonoFont);
-    text-align: left;
+    color: #2a2a2a;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+}
+
+#pollPage button:hover {
+    background-color: var(--lighterTeal);
 }

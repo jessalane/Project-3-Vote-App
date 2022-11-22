@@ -6,5 +6,33 @@
     --paleGreen: rgba(211, 226, 182, 1);
     --SerifFont: 'Taviraj', serif;
     --MonoFont: 'Cutive Mono', monospace;
-    --SansFont: 'Taviraj', serif;
+    --SansFont: 'Kanit', sans-serif;
+}
+
+#footer {
+    padding: 10px 0;
+    text-align: center;
+    background-color: var(--seaGreen);
+    color: #2a2a2a;
+    font-family: var(--SerifFont);
+}
+
+#footer h1 {
+    font-family: var(--SerifFont);
+    font-size: 60px;
+    color: #2a2a2a;
+}
+
+#footer h3 {
+    font-family: var(--MonoFont);
+    font-size: 15px;
+}
+
+#footer h3 a {
+    color: #0e0e0e;
+    margin: 0 5px;
+}
+#footer h3 a:hover {
+    color: #747474;
+    text-shadow: 0 0 5px var(--darkerTeal);
 }

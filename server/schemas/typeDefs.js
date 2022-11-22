@@ -1,29 +1,37 @@
 const { gpl } = require('apollo-server-express');
 
 const typeDefs = gpl`
-type PollOptions {
+type User {
     _id: ID!
-    name: String!
+    username: String
+    password: String
+    email: String
+    polls: [Polls]
 }
 
 type Polls {
     _id: ID!
+    createdAt: String!
     author: String!
     title: String!
-    options(_id: String): [pollOptionsSchema]
+    options(_id: String): [Options]
 }
 
-type User {
+type Options {
     _id: ID!
-    userName: String
-    password: String
-    email: String
-    polls: [pollsSchema]
+    name: String!
+    image: String
+    votes: [Vote]
 }
 
-type vote {
+type Vote {
     _id: ID!
-    votes: Number!
+    count: Number!
+}
+
+type Auth {
+    token: ID!
+    user: User
 }
 
 type Query {
@@ -35,6 +43,23 @@ type Query {
 
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+    addPoll(
+        pollId: ID!
+        createdAt: String!
+        author: String!
+        title: String!
+    ): Poll
+    addOption(
+        optionId: ID!
+        title: String!
+        image: String
+    ): Options
+    addVote(
+        voteId: ID!
+        count: Number
+    ): Vote
+    removePoll(pollId: ID!): Poll
+    removeOption(OptionId: ID!): Options
     login(email: String!, password: String!): Auth
 }
 `;

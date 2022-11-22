@@ -8,8 +8,7 @@
     --MonoFont: 'Cutive Mono', monospace;
 }
 
-#loginPage,
-#registerPage {
+#profile {
     min-height: 86vh;
     display: flex;
     flex: 1;
@@ -19,16 +18,27 @@
     align-items: center;
 }
 
-#loginPage h1,
-#registerPage h1 {
+#profile h1 {
     margin: 0;
     padding: 0;
     font-family: var(--SerifFont);
     color: #2a2a2a;
     font-size: 50px;
 }
+#profile h4 {
+    margin: 0;
+    padding: 0;
+    font-family: var(--SerifFont);
+    color: #2a2a2a;
+    font-size: 30px;
+}
 
-.form {
+#profile ul {
+    width: 50%;
+    text-align: left;
+}
+
+#profile .newPollForm {
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -37,24 +47,14 @@
     text-align: center;
 }
 
-.form input {
-    width: 70%;
-    margin: 10px;
-    padding: 10px;
-    display: block;
-    font-family: var(--MonoFont);
-}
-
-#loginPage button,
-#registerPage button {
-    width: 70%;
+#profile button {
+    width: 50%;
     background-color: var(--paleGreen);
     font-family: var(--MonoFont);
     font-size: 20px;
     border: none;
 }
 
-#loginPage button:hover,
-#registerPage button:hover {
+#profile button:hover {
     background-color: var(--lighterTeal);
 }

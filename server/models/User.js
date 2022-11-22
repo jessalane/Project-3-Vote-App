@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const pollsSchema = require('./polls');
 const bcrypt = require('bcrypt');
+const Polls = require('./Polls');
 
 const { Schema } = mongoose;
 
@@ -8,6 +8,7 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
+    unique: true,
     trim: true
   }, 
   password: {
@@ -18,9 +19,10 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    match: [/.+@.+\..+/, 'Input must be an email address!']
   },
-  polls: [pollsSchema]
+  polls: [Polls]
 });
 
 userSchema.pre('save', async function (next) {
@@ -38,6 +40,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

@@ -6,11 +6,10 @@
     --paleGreen: rgba(211, 226, 182, 1);
     --SerifFont: 'Taviraj', serif;
     --MonoFont: 'Cutive Mono', monospace;
-    --SansFont: 'Taviraj', serif;
 }
 
 #homePage {
-    height: 100vh;
+    min-height: 86vh;
     display: flex;
     flex: 1;
     flex-grow: 1;
@@ -29,7 +28,7 @@
 #titleContainer h1 {
     font-family: var(--MonoFont);
     color: #2a2a2a;
-    font-size: 60px;
+    font-size: 90px;
     margin: 0;
     padding: 0;
 }
@@ -37,7 +36,7 @@
 #titleContainer h2 {
     font-family: var(--MonoFont);
     color: #2a2a2a;
-    font-size: 40px;
+    font-size: 30px;
     margin: 0;
     padding: 0;
 }
