@@ -29,7 +29,7 @@ function Login(props) {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token, formState.email);
+      Auth.login(data.login.token, formState.email, data.login.user.username);
       props.handlePageChange("Profile");
     } catch (e) {
       console.error(e);
