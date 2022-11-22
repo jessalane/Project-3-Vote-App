@@ -88,9 +88,9 @@ function Register() {
           </form>
         </div>
       )}
-      {errorMessage && (
+      {error && (
         <div>
-            <p className="error-text">{errorMessage}</p>
+            <p className="error-text">{error}</p>
         </div>
       )}
     </section>
