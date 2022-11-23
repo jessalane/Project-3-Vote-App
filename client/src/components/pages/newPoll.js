@@ -1,6 +1,7 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 import QRCode from "react-qr-code";
+import Poll from './poll';
 
 function NewPoll() {
     const {id}=useParams();
