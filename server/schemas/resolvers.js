@@ -13,6 +13,9 @@ const resolvers = {
         const params = _id ? { _id } : {};
         return Polls.find(params);
     },
+    users: async () => {
+      return User.find().sort({createAt: -1 });
+    },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
