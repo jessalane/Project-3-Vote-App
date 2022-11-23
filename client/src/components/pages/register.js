@@ -4,7 +4,7 @@ import '../../css/loginRegister.css';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-
+import { checkPassword, validateEmail } from '../../helpers/helpers';
 
 function Register(props) {
   const [formState, setFormState] = useState({
@@ -12,10 +12,10 @@ function Register(props) {
     email: '',
     password: '',
   });
-  const [addUser, { error }] = useMutation(ADD_USER);
-
+  const [addUser] = useMutation(ADD_USER);
+  const [error, setErrorMessage] = useState('');
   const handleChange = (event) => {
-    const { name, value } = event.target;
+  const { name, value } = event.target;
 
     setFormState({
       ...formState,
@@ -25,6 +25,7 @@ function Register(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+   
     console.log(formState);
 
     try {
@@ -36,6 +37,16 @@ function Register(props) {
       props.handlePageChange("Profile");
     } catch (e) {
       console.error(e);
+    }
+    if (!validateEmail(formState.email) || !formState.userName) {
+      setErrorMessage('Email or username is invalid or already in use');
+      return;
+    }
+    if (!checkPassword(formState.password)) {
+      setErrorMessage(
+        `Choose a more secure password for the account: ${formState.userName}`
+      );
+      return;
     }
   };
 

@@ -9,6 +9,7 @@ import Uploader from './uploader';
 
 
 function UserInput() {
+
     const [ setCurrentPage] = useState('Home');
 const [file, setFile] = useState(null);
 useEffect(() => {
@@ -21,6 +22,21 @@ useEffect(() => {
     Uploader({file, setFile})
     inputEl.current.focus();
     };
+
+const  setCurrentPage = useState('Home');
+useEffect(() => {
+    console.log(file?.filesUploaded[0]?.url)
+    setCurrentPage('Home')
+}, [file]
+
+    const inputEl = useRef(null);
+    const [file, setFile] = useState(null);
+
+    const onButtonClick = () => {
+    Uploader({file, setFile})
+    inputEl.current.focus();
+    };);
+
     
       // Redirects the user to home after uploading a file
  
