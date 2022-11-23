@@ -5,7 +5,7 @@ import Auth from '../utils/auth';
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
 function NavTabs({ currentPage, handlePageChange, props }) {
-  const email = localStorage.getItem('user_email');
+  const username = localStorage.getItem('username');
   const token = localStorage.getItem('id_token');
   let logged = '';
   if(token !== null) {
@@ -122,8 +122,8 @@ function NavTabs({ currentPage, handlePageChange, props }) {
           Uploader
         </a>
       </li>
-      <li style> 
-        You are logged in as {email}.
+      <li> 
+        You are logged in as {username}.
       </li>      
       </ul>
     )}

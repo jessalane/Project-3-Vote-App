@@ -3,9 +3,11 @@ import ('../../css/profile.css')
 
 
 function Profile() {
+
+  const username = localStorage.getItem('username');
   return (
     <section id="profile">
-      <h1>Welcome (USERNAME)!</h1>
+      <h1>Welcome {username}!</h1>
       <h4>Your Polls</h4>
       <ul>
         <li>list</li>

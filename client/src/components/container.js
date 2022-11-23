@@ -8,15 +8,20 @@ import Polls from './pages/poll';
 import Profile from './pages/profile';
 import Footer from './footer'
 import Uploader from './pages/uploader';
+import NewPoll from './pages/newPoll';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 export default function PortfolioContainer() {
+
+  // const reactRouter = Reactrouter;
   const [currentPage, setCurrentPage] = useState('Home');
   const [file, setFile] = useState(null);
   useEffect(() => {
     console.log(file?.filesUploaded[0]?.url)
     // Redirects the user to home after uploading a file
-    setCurrentPage ('Home')
-// TODO: code here to send to apollo
+    setCurrentPage('Home')
+    // TODO: code here to send to apollo
 
   }, [file]);
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
@@ -25,17 +30,17 @@ export default function PortfolioContainer() {
       return <Home />;
     }
     if (currentPage === 'Uploader') {
-      return <Uploader setFile = {setFile} file = {file} />;
+      return <Uploader setFile={setFile} file={file} />;
     }
     if (currentPage === 'Login') {
-      return <Login currentPage={currentPage} handlePageChange={handlePageChange}/>;
+      return <Login currentPage={currentPage} handlePageChange={handlePageChange} />;
     }
     if (currentPage === 'Register') {
-      return <Register currentPage={currentPage} handlePageChange={handlePageChange}/>;
+      return <Register currentPage={currentPage} handlePageChange={handlePageChange} />;
     }
     if (currentPage === 'Polls') {
       return <Polls />;
-    } 
+    }
     if (currentPage === 'Logout') {
       return <Home />;
     }
@@ -45,10 +50,19 @@ export default function PortfolioContainer() {
   const handlePageChange = (page) => setCurrentPage(page);
 
   return (
-    <div>
+    <Router>
+      <div>
       <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
+      <Routes>
+      <Route
+        path="/newpoll/:id"
+        element={<NewPoll />}
+      />
+    </Routes>
       {renderPage()}
       <Footer />
     </div>
+    
+    </Router>
   );
 }
