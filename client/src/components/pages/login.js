@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import '../../css/loginRegister.css';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
-
+import { checkPassword, validateEmail } from '../../helpers/helpers';
 import Auth from '../../utils/auth';
 
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error }] = useMutation(LOGIN_USER);
-
+  const [login] = useMutation(LOGIN_USER);
+  const [error, setErrorMessage] = useState('');
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,6 +33,17 @@ function Login(props) {
       props.handlePageChange("Profile");
     } catch (e) {
       console.error(e);
+    }
+
+    if (!validateEmail(formState.email) || !formState.userName) {
+      setErrorMessage('Email is invalid or incorrect password');
+      return;
+    }
+    if (!checkPassword(formState.password)) {
+      setErrorMessage(
+        `Choose a more secure password for the account: ${formState.userName}`
+      );
+      return;
     }
 
     // clear form values
