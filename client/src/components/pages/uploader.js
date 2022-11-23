@@ -1,12 +1,9 @@
 import * as filestack from 'filestack-js';
 const client = filestack.init('AR9KzyDSRRLue82OmiLxOz');
 
-
-
-
 function Uploader ({setFile, file}) {
     const options = {
-        fromSources: ["local_file_system","instagram","facebook"],
+        fromSources: ["local_file_system","instagram","facebook","webcam"],
         accept: ["image/*"],
         onUploadDone: (file) => setFile(file),
         transformations: {

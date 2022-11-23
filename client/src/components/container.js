@@ -9,6 +9,7 @@ import Profile from './pages/profile';
 import Footer from './footer'
 import Uploader from './pages/uploader';
 import NewPoll from './pages/newPoll';
+import UserInput from './pages/userInput';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -44,7 +45,9 @@ export default function PortfolioContainer() {
     if (currentPage === 'Logout') {
       return <Home />;
     }
-    return <Profile />;
+    else {
+      return <Profile />;
+    }
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
@@ -57,6 +60,10 @@ export default function PortfolioContainer() {
       <Route
         path="/newpoll/:id"
         element={<NewPoll />}
+      />
+      <Route
+        path="/userinput/:id"
+        element={<UserInput />}
       />
     </Routes>
       {renderPage()}
