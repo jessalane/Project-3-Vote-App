@@ -1,9 +1,8 @@
-import React from 'react';
-import ('../../css/profile.css')
+import React, {useState} from 'react';
+import ('../../css/profile.css');
 
 
 function Profile() {
-
   const username = localStorage.getItem('username');
   return (
     <section id="profile">
@@ -17,7 +16,9 @@ function Profile() {
       </ul>
       <h4>Create New Poll</h4>
       <form className="newPollForm">
-        <button className="newPollButton">Click To Start</button>
+        <button>
+          Click To Start
+        </button>
       </form>
     </section>
   );

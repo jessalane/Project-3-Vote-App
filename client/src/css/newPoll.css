@@ -1,0 +1,86 @@
+:root {
+    --darkerTeal: rgba(104, 179, 175, 1);
+    --lighterTeal: rgba(135, 189, 177, 1);
+    --seaGreen: rgba(170, 204, 177, 1);
+    --springGreen: rgba(195, 219, 180, 1);
+    --paleGreen: rgba(211, 226, 182, 1);
+    --SerifFont: 'Taviraj', serif;
+    --MonoFont: 'Cutive Mono', monospace;
+}
+
+#newPoll {
+    min-height: 86vh;
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#newPoll h1 {
+    margin: 0;
+    padding: 0;
+    font-family: var(--SerifFont);
+    color: #2a2a2a;
+    font-size: 50px;
+}
+
+#newPoll h2 {
+    margin: 0;
+    padding: 0;
+    font-family: var(--SerifFont);
+    color: #2a2a2a;
+    font-size: 20px;
+}
+
+.form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.form .pollTitle {
+    width: 70%;
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    font-family: var(--MonoFont);
+}
+
+.optionForm {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.pollGroup {
+    flex-basis: 40%;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.optionForm input {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-family: var(--MonoFont);
+}
+
+#newPoll button {
+    width: 70%;
+    background-color: var(--paleGreen);
+    font-family: var(--MonoFont);
+    font-size: 20px;
+    border: none;
+}
+
+#newPoll button:hover {
+    background-color: var(--lighterTeal);
+}
