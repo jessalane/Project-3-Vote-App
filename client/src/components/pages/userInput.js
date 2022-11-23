@@ -5,54 +5,63 @@ import React, {
     useEffect
 } from 'react';
 import Uploader from './uploader';
+import {ADD_SUBMISSION} from '../../utils/mutations'
+import {useMutation} from '@apollo/client'
 
 
 
 function UserInput() {
 
-    const [ setCurrentPage] = useState('Home');
+const  setCurrentPage = useState('Home');
 const [file, setFile] = useState(null);
+// TODO: set state to true once submitted
+// const [submitted, setSubmitted] = useState(false);
 useEffect(() => {
     console.log(file?.filesUploaded[0]?.url)
-    setCurrentPage('Home')
 }, [file, setCurrentPage]);
 
     const inputEl = useRef(null);
-    const onButtonClick = () => {
+    const onButtonClick = (event) => {
+        event.preventDefault();
     Uploader({file, setFile})
     inputEl.current.focus();
     };
 
-const  setCurrentPage = useState('Home');
-useEffect(() => {
-    console.log(file?.filesUploaded[0]?.url)
-    setCurrentPage('Home')
-}, [file]
+    // form submission
+    const formState = useState({
+        user: '', dressedAs: '', photo: ''
+    });
+    const [addSubmission, { error }] = useMutation(ADD_SUBMISSION);
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
 
-    const inputEl = useRef(null);
-    const [file, setFile] = useState(null);
-
-    const onButtonClick = () => {
-    Uploader({file, setFile})
-    inputEl.current.focus();
-    };);
+        try {
+         
+          const { data } = await addSubmission({
+            variables: { ...formState },
+          });
+    
+          window.location.reload();
+        } catch (err) {
+          console.error(err);
+        }
+      };
 
     
-      // Redirects the user to home after uploading a file
  
       // TODO: code here to send to apollo
   
- 
-// focus is breaking it. Calling this function any time something is focused.
+//  TODO: build function to submit the form, add in the conditional rendering to display confirmation message
 
 
 return ( 
+    <div>
 <section id='userInput'>
     <h1>Enter the contest!</h1>
     <form>
 <input 
-    name = "name"
     type = "text"
+    value = {formState.user}
     placeholder = "What is your name?"
     required 
 /> 
@@ -60,20 +69,32 @@ return (
 <input 
     name = "name"
     type = "text"
+    value = {formState.dressedAs}
     placeholder = "What are you dressed as?" 
 />
+{file ? <input id='submitBtn'
+       name="Submit"
+       type="submit"
+       text="Submit"
+       onSubmit={handleFormSubmit}
+       />
+       : 
+       <button id='uploaderBtn'
+       ref={inputEl}
+       name="photoUpload"
+       value = {formState.photo}
+       onClick={onButtonClick}
+       >Upload a photo</button> } 
 
-<button id='uploderButton'> Upload a photo </button>
+{error && (
+          <div className="col-12 my-3 bg-danger text-white p-3">
+            Something went wrong...
+          </div>
+        )}
 
-<input id='submitBtn'
-            ref={inputEl}
-            name="Submit"
-            type="submit"
-            onClick={onButtonClick}
-            text="Submit"
-            />
 </form>
 </section>
+</div>
 );
 };
 
