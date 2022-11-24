@@ -1,15 +1,15 @@
 import '../../css/newPoll.css';
 
 import React  from 'react';
-import {useParams} from 'react-router-dom';
-import QRCode from "react-qr-code";
-import Poll from './poll';
+// import {useParams} from 'react-router-dom';
+// import QRCode from "react-qr-code";
+// import Poll from './poll';
 
 function NewPoll() {
   
-  const {id}=useParams();
+  // const {id}=useParams();
   // TODO: update link with heroku deployed link 
-  const url = 'http://localhost:3000/newpoll/' + id
+  // const url = 'http://localhost:3000/newpoll/' + id
   
   return (
     <section id="newPoll">
