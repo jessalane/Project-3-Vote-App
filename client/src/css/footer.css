@@ -36,3 +36,10 @@
     color: #747474;
     text-shadow: 0 0 5px var(--darkerTeal);
 }
+
+/* Small smartphones */
+@media screen and (max-width: 576px) {
+    #footer {
+        width: 100%;
+    }
+}

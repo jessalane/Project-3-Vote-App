@@ -10,63 +10,62 @@
   
   /*--- navigation bar styling ---*/
   #nav {
-      position: fixed;
-      z-index: 1001;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: var(--darkerTeal);
-      padding: 10px 20px;
-    }
-    .nav1 {
-      width: 30%;
-      display: inline-block;
-    }
-    .nav2 {
-      width: 65%;
-      display: inline-block;
-      text-align: right;
-    }
-    
-    #nav li {
-      display: inline-block;
-    }
-    
-    #navName {
-      font-family: var(--MonoFont);
-      font-size: 30px;
-      padding-left: 7%;
-      color: #eeeeee;
-    }
-    
-    #nav .inactive {
-      color: #2a2a2a;
-      font-family: var(--MonoFont);
-      padding: 0 20px;
-    }
-    
-    #nav .inactive:hover {
-      color: var(--springGreen);
-      text-shadow: 0 0 5px #000;
-      transform: scale(1.1);
-      outline: 1px solid transparent;
-    }
-  
-    #nav .active {
-      color: #747474;
-      font-family: var(--MonoFont);
-      padding: 0 20px;
-    }
-    
-  /* Small smartphones */
-  @media screen and (max-width: 576px) {
-    #nav {
-      width: 100%;
-      border-radius: 0;
-      margin: 0;
-      padding: 5px;
-    }
-    #navName {
-      font-size: 20px;
-    }
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--darkerTeal);
+    padding: 10px 20px;
   }
+  .nav1 {
+    width: 30%;
+    display: inline-block;
+  }
+  .nav2 {
+    width: 65%;
+    display: inline-block;
+    text-align: right;
+  }
+  
+  #nav li {
+    font-family: var(--SerifFont);
+    display: inline-block;
+  }
+  
+  #navName {
+    font-family: var(--MonoFont);
+    font-size: 30px;
+    padding-left: 7%;
+    color: #eeeeee;
+  }
+  
+  #nav .inactive {
+    color: #2a2a2a;
+    font-family: var(--MonoFont);
+    padding: 0 20px;
+  }
+  
+  #nav .inactive:hover {
+    color: var(--springGreen);
+    text-shadow: 0 0 5px #000;
+    transform: scale(1.1);
+    outline: 1px solid transparent;
+  }
+
+  #nav .active {
+    color: #747474;
+    font-family: var(--MonoFont);
+    padding: 0 20px;
+  }
+    
+/* Small smartphones */
+@media screen and (max-width: 576px) {
+  #nav {
+    text-align: center;
+  }
+  #nav ul {
+    margin: 0;
+    padding: 0;
+  }
+}

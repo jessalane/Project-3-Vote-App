@@ -38,13 +38,13 @@ function Register(props) {
     } catch (e) {
       console.error(e);
     }
-    if (!validateEmail(formState.email) || !formState.userName) {
+    if (!validateEmail(formState.email) || !formState.username) {
       setErrorMessage('Email or username is invalid or already in use');
       return;
     }
     if (!checkPassword(formState.password)) {
       setErrorMessage(
-        `Choose a more secure password for the account: ${formState.userName}`
+        `Choose a more secure password for the account: ${formState.username}`
       );
       return;
     }

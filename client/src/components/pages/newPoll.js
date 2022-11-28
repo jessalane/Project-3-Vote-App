@@ -1,5 +1,6 @@
 import '../../css/newPoll.css';
 
+
 import React  from 'react';
 // import {useParams} from 'react-router-dom';
 // import QRCode from "react-qr-code";

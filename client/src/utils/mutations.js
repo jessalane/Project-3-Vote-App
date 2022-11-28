@@ -38,10 +38,24 @@ mutation addSubmission($user: String!, $dressedAs: String!, $photo: String!) {
 
 
 
-// export const ADD_POLL = gql`
-//   mutation logic here
-// `;
+export const ADD_POLL = gql`
+mutation Mutation($pollId: ID!, $createdAt: String!, $author: String!, $title: String!) {
+  addPoll(pollId: $pollId, createdAt: $createdAt, author: $author, title: $title) {
+    author
+    title
+    options {
+      image
+      name
+    }
+  }
+}
+`;
 
-// export const ADD_VOTE = gql`
-//   mutation logic here
-// `;
+export const ADD_VOTE = gql`
+mutation Mutation($count: String, $voteId: ID!) {
+  addVote(count: $count, voteId: $voteId) {
+    count
+    _id
+  }
+}
+`;
