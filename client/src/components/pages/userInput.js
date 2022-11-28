@@ -10,12 +10,11 @@ import Uploader from './uploader';
 
 function UserInput() {
 
-    const [ setCurrentPage] = useState('Home');
+const  setPage = useState('Home');
 const [file, setFile] = useState(null);
 useEffect(() => {
     console.log(file?.filesUploaded[0]?.url)
-    setCurrentPage('Home')
-}, [file, setCurrentPage]);
+}, [file, setPage]);
 
     const inputEl = useRef(null);
     const onButtonClick = () => {
@@ -58,10 +57,23 @@ return (
 /> 
 
 <input 
-    name = "name"
     type = "text"
     placeholder = "What are you dressed as?" 
 />
+{file ? <input id='submitBtn'
+       name="Submit"
+       type="submit"
+       text="Submit"
+    //    onSubmit={handleFormSubmit}
+       />
+       : 
+       <button id='uploaderBtn'
+       ref={inputEl}
+       name="photoUpload"
+    //    value = {formState.photo}
+    //    TODO: Need to get exactly how this is saved - https://cdn.filestackcontent.com/ZwdrAZ3gTve2vZz11jeB or something similar.
+       onClick={onButtonClick}
+       >Upload a photo</button> } 
 
 <button id='uploderButton'> Upload a photo </button>
 
