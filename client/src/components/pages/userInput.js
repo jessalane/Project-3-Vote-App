@@ -12,13 +12,13 @@ import Uploader from './uploader';
 
 function UserInput() {
 
-const  setCurrentPage = useState('Home');
+const  setPage = useState('Home');
 const [file, setFile] = useState(null);
 // TODO: set state to true once submitted
 // const [submitted, setSubmitted] = useState(false);
 useEffect(() => {
     console.log(file?.filesUploaded[0]?.url)
-}, [file, setCurrentPage]);
+}, [file, setPage]);
 
     const inputEl = useRef(null);
     const onButtonClick = (event) => {
@@ -65,7 +65,6 @@ return (
 /> 
 
 <input 
-    name = "name"
     type = "text"
     // value = {formState.dressedAs}
     placeholder = "(optional) What are you dressed as?" 
@@ -81,7 +80,7 @@ return (
        ref={inputEl}
        name="photoUpload"
     //    value = {formState.photo}
-    //    Need to get exactly how this is saved - https://cdn.filestackcontent.com/ZwdrAZ3gTve2vZz11jeB or something similar.
+    //    TODO: Need to get exactly how this is saved - https://cdn.filestackcontent.com/ZwdrAZ3gTve2vZz11jeB or something similar.
        onClick={onButtonClick}
        >Upload a photo</button> } 
 
