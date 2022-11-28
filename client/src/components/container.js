@@ -55,7 +55,10 @@ export default function PortfolioContainer() {
   return (
     <Router>
       <div>
-      <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
+      <NavTabs 
+        currentPage={currentPage} 
+        handlePageChange={handlePageChange} 
+      />
       <Routes>
       <Route
         path="/newpoll/:id"
