@@ -39,23 +39,27 @@ mutation addSubmission($user: String!, $dressedAs: String!, $photo: String!) {
 
 
 export const ADD_POLL = gql`
-mutation Mutation($pollId: ID!, $createdAt: String!, $author: String!, $title: String!) {
+mutation addPoll($pollId: ID!, $createdAt: String!, $author: String!, $title: String!) {
   addPoll(pollId: $pollId, createdAt: $createdAt, author: $author, title: $title) {
+    _id
     author
+    createdAt
     title
     options {
       image
       name
+      votes {
+        count
+      }
     }
   }
 }
 `;
 
 export const ADD_VOTE = gql`
-mutation Mutation($count: String, $voteId: ID!) {
-  addVote(count: $count, voteId: $voteId) {
+mutation addVote($voteId: ID!, $count: String) {
+  addVote(voteId: $voteId, count: $count) {
     count
-    _id
   }
 }
 `;
