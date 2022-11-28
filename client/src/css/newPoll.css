@@ -73,7 +73,7 @@
     font-family: var(--MonoFont);
 }
 
-#newPoll button {
+#newPoll .submitBtn {
     width: 70%;
     background-color: var(--paleGreen);
     font-family: var(--MonoFont);
@@ -81,6 +81,6 @@
     border: none;
 }
 
-#newPoll button:hover {
+#newPoll .submitBtn:hover {
     background-color: var(--lighterTeal);
 }

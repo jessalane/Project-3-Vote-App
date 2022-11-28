@@ -58,3 +58,20 @@
 #profile button:hover {
     background-color: var(--lighterTeal);
 }
+
+/* Small smartphones */
+@media screen and (max-width: 576px) {
+    #profile h1 {
+        font-size: 35px;
+    }
+    #profile h4 {
+        font-size: 20px;
+    }
+    #profile ul {
+        width: 100%;
+        text-align: left;
+    }
+    #profile button {
+        width: 90%;
+    }
+}

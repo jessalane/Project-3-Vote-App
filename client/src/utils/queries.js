@@ -1,26 +1,32 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
-  query users {
-    users {
-        username
-        email
+query User($username: String!) {
+  user(username: $username) {
+    _id
+    email
+    username
+    polls {
+      _id
     }
   }
+}
 `;
 
 export const QUERY_POLLS = gql`
-query polls($author: String) {
-    polls(author: $author) {
-        _id
-        createdAt
-        author
-        title
-        [options]
+query Query($pollId: ID!) {
+  polls(pollId: $pollId) {
+    _id
+    author
+    createdAt
+    title
+    options {
+      image
+      name
+      votes {
+        count
+      }
     }
   }
-`;
-
-export const QUERY_VOTES = gql`
-  query votes
+}
 `;

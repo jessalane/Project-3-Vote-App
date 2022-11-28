@@ -63,3 +63,18 @@
 #pollPage button:hover {
     background-color: var(--lighterTeal);
 }
+
+/* Tablets */
+@media screen and (max-width: 992px) {
+    
+}
+
+/* Large smartphones */
+@media screen and (max-width: 769px) {
+
+}
+
+/* Small smartphones */
+@media screen and (max-width: 576px) {
+
+}
