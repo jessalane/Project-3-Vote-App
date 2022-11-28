@@ -33,7 +33,7 @@ function Register(props) {
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token, formState.email, data.addUser.user.username);
       props.handlePageChange("Profile");
     } catch (e) {
       console.error(e);
