@@ -97,7 +97,7 @@ function NewPoll() {
             type="text"
             placeholder="Option Two"
             required
-          />
+          />;
           <input
             value={pollState.options[1].image}
             onChange={handleChange}
