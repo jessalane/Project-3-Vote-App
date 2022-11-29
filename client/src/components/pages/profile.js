@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ('../../css/profile.css');
 
 
@@ -16,9 +17,11 @@ function Profile() {
       </ul>
       <h4>Create New Poll</h4>
       <form className="newPollForm">
+      <Link to="/newPoll/1">
         <button>
           Click To Start
         </button>
+      </Link>
       </form>
     </section>
   );
