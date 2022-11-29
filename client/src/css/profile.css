@@ -48,7 +48,6 @@
 }
 
 #profile button {
-    width: 50%;
     background-color: var(--paleGreen);
     font-family: var(--MonoFont);
     font-size: 20px;

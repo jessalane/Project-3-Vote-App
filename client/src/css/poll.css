@@ -8,27 +8,25 @@
     --MonoFont: 'Cutive Mono', monospace;
 }
 
-#poll-h1 {
-    position: relative;
-    top: 100px;
-    /* left: 650px; */
-    --SerifFont: 'Taviraj', serif;
-    text-align: center !important; 
-    margin-block-start: auto;
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: 0;
-    font-family: var(--SerifFont);
-}
-
 #pollPage {
-    min-height: 60vh;
+    min-height: 100vh;
     display: flex;
     flex: 1;
     flex-grow: 1;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    padding: 70px 0 20px 0;
+}
+
+#pollPage h1 {
+    font-family: var(--SerifFont);
+    text-align: center !important; 
+    margin-block-start: auto;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    font-family: var(--SerifFont);
 }
 
 #pollContainer {
@@ -38,14 +36,6 @@
     align-items: center;
     width: 100%;
     text-align: center;
-}
-
-#pollContainer h1 {
-    margin: 0;
-    padding: 0;
-    font-family: var(--MonoFont);
-    color: #2a2a2a;
-    font-size: 50px;
 }
 
 .cardBody {
@@ -75,19 +65,4 @@
 
 #pollPage button:hover {
     background-color: var(--lighterTeal);
-}
-
-/* Tablets */
-@media screen and (max-width: 992px) {
-    
-}
-
-/* Large smartphones */
-@media screen and (max-width: 769px) {
-
-}
-
-/* Small smartphones */
-@media screen and (max-width: 576px) {
-
 }
