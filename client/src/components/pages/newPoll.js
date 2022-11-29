@@ -7,16 +7,31 @@ function NewPoll() {
 
   let user = localStorage.getItem("user_email");
 
-  const [pollState, setPollState] = useState({ title: '', options: [{ name: '', image: '' }], author: user });
+  const [pollState, setPollState] = useState({ title: '', options: [{ name: '', image: '' }, { name: '', image: '' }, { name: '', image: '' }, { name: '', image: '' }, { name: '', image: '' }, { name: '', image: '' }], author: user });
 
   const [addPoll, { error}] = useMutation(ADD_POLL);
 
   const handleChange = (event) => {
+    const { id } = event.target.dataset;
     const { name, value } = event.target;
+    const newValue = {};
+    if(name === "name") {
+      newValue.name = value;
+      newValue.image = pollState.options[id].image;
+    } else if(name === "title") {
+      
+    }
+    else {
+      newValue.name = pollState.options[id].name;
+      newValue.image = value;
+    }
+    const oldOptions = [...pollState.options];
+    oldOptions.splice(parseInt(id), 1, newValue);
+    console.log(oldOptions);
 
     setPollState({
       ...pollState,
-      [name]: value,
+      options: [...oldOptions]
     });
   };
 
@@ -67,134 +82,30 @@ function NewPoll() {
           onSubmit={handleFormSubmit}
           className="optionForm"
         >
-          {/* option one */}
-          <div className="pollGroup">
-          <h2>Option One</h2>
-          <input
-            value={pollState.options[0].name}
+          {pollState.options.map((option, i) => (
+            <div key={i}
+            className="pollGroup">
+              <h2>Option {i+1} </h2>
+            <input
+            value={option.name}
             onChange={handleChange}
-            name="option1"
+            data-id={i}
+            name="name"
             type="text"
-            placeholder="Option One"
+            placeholder={"option " + (i+1)}
             required
           />
           <input
-            value={pollState.options[0].image}
-            onChange={handleChange}
-            name="image1"
-            type="text"
-            placeholder="Image One"
-            required
+          value={option.image}
+          onChange={handleChange}
+          data-id={i}
+          name="image"
+          type="text"
+          placeholder={"image " + (i+1)}
+          required
           />
-          </div>
-          {/* option two */}
-          <div className="pollGroup">
-          <h2>Option Two</h2>
-          <input
-            value={pollState.options[1].name}
-            onChange={handleChange}
-            name="option2"
-            type="text"
-            placeholder="Option Two"
-            required
-          />
-          <input
-            value={pollState.options[1].image}
-            onChange={handleChange}
-            name="image2"
-            type="text"
-            placeholder="Image Two"
-            required
-          />
-          </div>
-          {/* option three */}
-          <div className="pollGroup">
-          <h2>Option Three</h2>
-          <input
-            value={pollState.options[2].name}
-            onChange={handleChange}
-            name="option3"
-            type="text"
-            placeholder="Option Three"
-            required
-          />
-          <input
-            value={pollState.options[2].image}
-            onChange={handleChange}
-            name="image3"
-            type="text"
-            placeholder="Image Three"
-            required
-          />
-          </div>
-          {/* option four */}
-          <div className="pollGroup">
-          <h2>Option Four</h2>
-          <input
-            value={pollState.options[3].name}
-            onChange={handleChange}
-            name="option4"
-            type="text"
-            placeholder="Option Four"
-            required
-          />
-          <input
-            value={pollState.options[3].image}
-            onChange={handleChange}
-            name="image4"
-            type="text"
-            placeholder="Image Four"
-            required
-          />
-          </div>
-          {/* option five */}
-          <div className="pollGroup">
-          <h2>Option Five</h2>
-          <input
-            value={pollState.options[4].name}
-            onChange={handleChange}
-            name="option5"
-            type="text"
-            placeholder="Option Five"
-            required
-          />
-          <input
-            value={pollState.options[4].image}
-            onChange={handleChange}
-            name="image5"
-            type="text"
-            placeholder="Image Five"
-            required
-          />
-          </div>
-          {/* option six */}
-          <div className="pollGroup">
-          <h2>Option Six</h2>
-          <input
-            value={pollState.options[5].name}
-            onChange={handleChange}
-            name="option6"
-            type="text"
-            placeholder="Option Six"
-            required
-          />
-          <input
-            value={pollState.options[5].image}
-            onChange={handleChange}
-            name="image6"
-            type="text"
-            placeholder="Image Six"
-            required
-          />
-          </div>
-        {/* submit button */}
-          <input 
-            class='submitBtn'
-            style={{ cursor: 'pointer' }}
-            name="Submit"
-            type="submit"
-            text="Submit"
-          />
+        </div>
+          ))}
           {error && (
           <div className="newPollErr">
             Something went wrong...
