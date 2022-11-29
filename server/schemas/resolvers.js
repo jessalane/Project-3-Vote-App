@@ -40,32 +40,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addPoll: async (parent, { pollId, createdAt, author, title }) => {
-      const poll = await Poll.create({ pollId, createdAt, author, title });
+    addPoll: async (parent, { pollId, createdAt, author, title, options }) => {
+      const poll = await Poll.create({ pollId, createdAt, author, title, options });
       
-      await User.findOneAndUpdate(
-        { username: author },
-        { $addToSet: { thoughts: thought._id } }
-      );
       return poll
-    },
-    addOption: async (parent, { optionId, title, image }) => {
-      return Polls.findOneAndUpdate(
-        { _id: pollId },
-        {
-          $addToSet: { options: { optionId, title, image } },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
-    removePoll: async (parent, { pollId }) => {
-      return Polls.findOneAndDelete({ _id: pollId });
-    },
-    removeOption: async (parent, { optionId }) => {
-      return Polls.options.findOneAndDelete({ _id: optionId });
     },
   }
 

@@ -40,3 +40,14 @@
     margin: 0;
     padding: 0;
 }
+
+/* Small smartphones */
+@media screen and (max-width: 576px) {
+
+#titleContainer h1 {
+    font-size: 70px;
+}
+#titleContainer h2 {
+    font-size: 15px;
+}
+}
