@@ -39,11 +39,9 @@ mutation addSubmission($user: String!, $dressedAs: String!, $photo: String!) {
 
 
 export const ADD_POLL = gql`
-mutation addPoll($pollId: ID!, $createdAt: String!, $author: String!, $title: String!) {
-  addPoll(pollId: $pollId, createdAt: $createdAt, author: $author, title: $title) {
+mutation addPoll( $title: String!) {
+  addPoll( title: $title) {
     _id
-    author
-    createdAt
     title
     options {
       image

@@ -40,8 +40,8 @@ const resolvers = {
 
       return { token, user };
     },
-    addPoll: async (parent, { pollId, createdAt, author, title, options }) => {
-      const poll = await Poll.create({ pollId, createdAt, author, title, options });
+    addPoll: async (parent, { pollId, title, options }) => {
+      const poll = await Polls.create({ pollId, title, options });
       
       return poll
     },

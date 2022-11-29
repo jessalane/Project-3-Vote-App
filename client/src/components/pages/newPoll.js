@@ -46,6 +46,16 @@ function NewPoll() {
   const [pollState, setPollState] = useState({ title: '', options: [{ name: '', image: '' }, { name: '', image: '' }, { name: '', image: '' }, { name: '', image: '' }, { name: '', image: '' }, { name: '', image: '' }], author: user });
 
   const [addPoll, { error }] = useMutation(ADD_POLL);
+  const [titleState, setTitleState] = useState();
+  const handleTitleChange = (event) => {
+    
+    const { title, value } = event.target;
+
+    setTitleState({
+      ...titleState,
+      [title]: value,
+    });
+  };
 
   const handleChange = (event) => {
     const { id } = event.target.dataset;
@@ -55,7 +65,7 @@ function NewPoll() {
       newValue.name = value;
       newValue.image = pollState.options[id].image;
     } else if (name === "title") {
-      // title change
+      // TODO: title change
     }
     const oldOptions = [...pollState.options];
     oldOptions.splice(parseInt(id), 1, newValue);
@@ -100,7 +110,7 @@ function NewPoll() {
         <h2>Poll Title</h2>
         <input
           value={pollState.title}
-          onChange={handleChange}
+          onChange={handleTitleChange}
           name="title"
           type="text"
           placeholder="What we are voting on"
@@ -148,6 +158,7 @@ function NewPoll() {
         <input
           class='submitBtn'
           style={{ cursor: 'pointer' }}
+          // onClick={handleFormSubmit}
           name="Submit"
           type="submit"
           text="Submit"
