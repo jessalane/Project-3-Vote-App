@@ -6,8 +6,7 @@ function VotingCard(props) {
   let { sweater, incrementVoteCount } = props;
 // changes
   return (
-    <section id="pollPage">
-      <div id="pollContainer">
+    <div>
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={`/assets/images/${sweater.pic}`} />
       <Card.Body class="cardBody">
@@ -19,7 +18,6 @@ function VotingCard(props) {
       <Card.Footer class="voteCount">Vote count: {sweater.votes}</Card.Footer>
     </Card>
     </div>
-    </section>
   );
 }
 
