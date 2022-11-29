@@ -17,10 +17,11 @@ function Uploader ({setFile, file}) {
                 throw new Error('File too big, select something smaller than 20MB');
             }
         }  
+        
       };
-     if (file ==null) {
-        (client.picker(options).open());
-     }
+     
+        client.picker(options).open()
+     
     
     return <div></div>
 }

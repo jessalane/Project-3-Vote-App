@@ -1,9 +1,47 @@
 import '../../css/newPoll.css';
 import { ADD_POLL } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
-import React, { useState }  from 'react';
+import React, {
+  useRef,
+  useState,
+  useEffect
+} from 'react';
+import Uploader from './uploader';
+
+
+
 
 function NewPoll() {
+  // uploader 
+  const  setPage = useState('Home');
+  const [file, setFile] = useState(null);
+  const [inputId, setInputId] = useState(0);
+  // TODO: set state to true once submitted
+  // const [submitted, setSubmitted] = useState(false);
+  useEffect(() => {
+    if (file!==null) {
+      const newValue = {};
+      newValue.name = pollState.options[inputId].name;
+      newValue.image = file?.filesUploaded[0]?.url
+    
+    const oldOptions = [...pollState.options];
+    oldOptions.splice(parseInt(inputId), 1, newValue);
+    
+
+    setPollState({
+      ...pollState,
+      options: [...oldOptions]
+    })};
+  }, [file]);
+
+    const inputEl = useRef(null);
+    const onButtonClick = (event) => {
+        event.preventDefault();
+        const { id } = event.target.dataset;
+        setInputId(id)
+        
+    Uploader({ setFile, file})
+    };
 
   let user = localStorage.getItem("user_email");
 
@@ -19,15 +57,10 @@ function NewPoll() {
       newValue.name = value;
       newValue.image = pollState.options[id].image;
     } else if(name === "title") {
-      
-    }
-    else {
-      newValue.name = pollState.options[id].name;
-      newValue.image = value;
+      // title change
     }
     const oldOptions = [...pollState.options];
     oldOptions.splice(parseInt(id), 1, newValue);
-    console.log(oldOptions);
 
     setPollState({
       ...pollState,
@@ -42,7 +75,6 @@ function NewPoll() {
       const { data } = await addPoll({
         variables: { ...pollState },
       });
-      console.log(data);
 
       window.location.reload();
     } catch (err) {
@@ -95,15 +127,18 @@ function NewPoll() {
             placeholder={"option " + (i+1)}
             required
           />
-          <input
+          {option.image==="" ? <input
           value={option.image}
-          onChange={handleChange}
+          // onChange={handleChange}
+          onClick={onButtonClick}
           data-id={i}
           name="image"
-          type="text"
+          type="button"
           placeholder={"image " + (i+1)}
           required
-          />
+    
+          />:<img src={ option.image }/>}
+          
         </div>
           ))}
           {error && (
