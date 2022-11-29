@@ -46,14 +46,11 @@ type Query {
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     addPoll(
-        pollId: ID!
-        createdAt: String!
-        author: String!
         title: String!
     ): Polls
     addOption(
         optionId: ID!
-        title: String!
+        name: String!
         image: String
     ): Options
     addVote(

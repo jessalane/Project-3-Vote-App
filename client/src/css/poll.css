@@ -8,8 +8,21 @@
     --MonoFont: 'Cutive Mono', monospace;
 }
 
+#poll-h1 {
+    position: relative;
+    top: 100px;
+    /* left: 650px; */
+    --SerifFont: 'Taviraj', serif;
+    text-align: center !important; 
+    margin-block-start: auto;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    font-family: var(--SerifFont);
+}
+
 #pollPage {
-    min-height: 86vh;
+    min-height: 60vh;
     display: flex;
     flex: 1;
     flex-grow: 1;

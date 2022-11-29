@@ -13,8 +13,27 @@
     },
     {
         "_id": 3,
-        "name": "Karlan",
+        "name": "Karlahn",
         "pic": "sweater3.jpg",
         "votes":0
+    },
+    {
+        "_id": 4,
+        "name": "Bryttneigh",
+        "pic": "sweater4.jpg",
+        "votes":0
+    },
+    {
+        "_id": 5,
+        "name": "Ye",
+        "pic": "sweater5.jpg",
+        "votes":0
+    },
+    {
+        "_id": 6,
+        "name": "Dale",
+        "pic": "sweater6.jpg",
+        "votes":0
     }
+
 ]

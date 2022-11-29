@@ -23,8 +23,11 @@ function Poll() {
     setSweater(sweater);
   }
 
+  
+
   return (
     <Container className="Poll">
+      <h1 id="poll-h1">Most Festive Sweater</h1>
       <Row>
         {sweater.map((sweater) => {
           return (
