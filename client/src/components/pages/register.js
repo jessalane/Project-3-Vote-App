@@ -33,18 +33,18 @@ function Register(props) {
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token, formState.email, data.addUser.user.username);
+      Auth.login(data.addUser.token);
       props.handlePageChange("Profile");
     } catch (e) {
       console.error(e);
     }
-    if (!validateEmail(formState.email) || !formState.username) {
+    if (!validateEmail(formState.email) || !formState.userName) {
       setErrorMessage('Email or username is invalid or already in use');
       return;
     }
     if (!checkPassword(formState.password)) {
       setErrorMessage(
-        `Choose a more secure password for the account: ${formState.username}`
+        `Choose a more secure password for the account: ${formState.userName}`
       );
       return;
     }

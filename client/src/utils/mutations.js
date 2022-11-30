@@ -23,20 +23,6 @@ export const ADD_USER = gql`
     }
   }
 `;
-// figure out how photo is saved - file?.filesUploaded[0]?.url ???
-export const ADD_SUBMISSION = gql`
-mutation addSubmission($user: String!, $dressedAs: String!, $photo: String!) {
-  addSubmission(user: $user, dressedAs: $dressedAs, photo: $photo) {
-    _id
-    user
-    dressedAs
-    photo
-    
-  }
-}
-`; 
-
-
 
 export const ADD_POLL = gql`
 mutation addPoll( $title: String!) {
