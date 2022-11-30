@@ -9,20 +9,17 @@ import Profile from './pages/profile';
 import Footer from './footer'
 import Uploader from './pages/uploader';
 import NewPoll from './pages/newPoll';
-import UserInput from './pages/userInput';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 export default function PortfolioContainer() {
 
-  // const reactRouter = Reactrouter;
   const [currentPage, setCurrentPage] = useState('Home');
   const [file, setFile] = useState(null);
   useEffect(() => {
     console.log(file?.filesUploaded[0]?.url)
     // Redirects the user to home after uploading a file
     setCurrentPage('Home')
-    // TODO: code here to send to apollo
 
   }, [file]);
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
@@ -63,10 +60,6 @@ export default function PortfolioContainer() {
       <Route
         path="/newpoll/:id"
         element={<NewPoll />}
-      />
-      <Route
-        path="/userinput/:id"
-        element={<UserInput />}
       />
     </Routes>
       {renderPage()}

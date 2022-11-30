@@ -63,16 +63,6 @@ function NavTabs({ currentPage, handlePageChange, props }) {
           Polls
         </a>
       </li>
-    
-      <li>
-        <a
-          href="#uploader"
-          onClick={() => handlePageChange('Uploader')}
-          className={currentPage === 'Uploader' ? 'active' : 'inactive'}
-        >
-          Uploader
-        </a>
-      </li>      
       </ul>
     ) : (
       <ul>
@@ -110,16 +100,6 @@ function NavTabs({ currentPage, handlePageChange, props }) {
           className={currentPage === 'Logout' ? 'active' : 'inactive'}
         >
           Logout
-        </a>
-      </li>
-    
-      <li>
-        <a
-          href="#uploader"
-          onClick={() => handlePageChange('Uploader')}
-          className={currentPage === 'Uploader' ? 'active' : 'inactive'}
-        >
-          Uploader
         </a>
       </li>
       <li> 

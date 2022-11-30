@@ -1,4 +1,4 @@
-// import './css/Poll.css';
+import '../../css/poll.css';
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import VotingCard from "../votingCard";
@@ -23,8 +23,13 @@ function Poll() {
     setSweater(sweater);
   }
 
+  
+
   return (
     <Container className="Poll">
+      <section id="pollPage">
+        <h1>Most Festive Sweater</h1>
+      <div id="pollContainer">
       <Row>
         {sweater.map((sweater) => {
           return (
@@ -37,6 +42,8 @@ function Poll() {
           );
         })}
       </Row>
+      </div>
+      </section>
     </Container>
   );
 }
